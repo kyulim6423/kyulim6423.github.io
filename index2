@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JWELL Trading &amp; Services | Forklift Sales, Rental &amp; Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="JWELL Trading &amp; Services provides forklift sales, rental and maintenance services in Malaysia. Diesel and battery forklifts and reach trucks." />
+
+  <style>
+    :root {
+      --primary: #111827;        /* black-ish */
+      --primary-dark: #020617;   /* even darker */
+      --accent: #f97316;         /* orange */
+      --accent-dark: #ea580c;    /* darker orange */
+      --bg: #f9fafb;
+      --text: #111827;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --border-radius: 0.75rem;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.12);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+    }
+
+    .nav-logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--muted);
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      height: 2px;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease, border 0.15s ease;
+      box-shadow: 0 6px 16px rgba(249, 115, 22, 0.45);
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem 0 1rem;
+      }
+      .nav-cta {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3.5rem 0 3rem;
+      /* keep a subtle warm hero but only here */
+      background: radial-gradient(ellipse at top, #ffedd5 0, #f9fafb 55%);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.05fr);
+      }
+    }
+
+    @media (max-width: 959px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 3.4vw + 1rem, 3.1rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 36rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease, border 0.15s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(249, 115, 22, 0.45);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(15, 23, 42, 0.2);
+      color: var(--primary-dark);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--primary-dark);
+    }
+
+    .hero-media {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 959px) {
+      .hero-media {
+        margin-top: 1.8rem;
+        justify-content: center;
+      }
+    }
+
+    /* Hero photo carousel card */
+    .hero-photo-inline {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 1.4rem;
+      background: #020617;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      padding: 0.75rem 1rem 2.6rem;
+    }
+
+    .hero-photo-slider {
+      position: relative;
+      border-radius: 1.1rem;
+      overflow: hidden;
+      height: 320px;
+    }
+
+    .hero-photo-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .hero-photo-slide.active {
+      opacity: 1;
+    }
+
+    .hero-photo-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-photo-slider::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+      pointer-events: none;
+    }
+
+    .hero-photo-caption {
+      position: absolute;
+      left: 1.6rem;
+      bottom: 1rem;
+      color: var(--white);
+      font-size: 0.85rem;
+      z-index: 2;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(6px);
+      max-width: 80%;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-photo-dots {
+      position: absolute;
+      right: 1.6rem;
+      bottom: 1.1rem;
+      display: flex;
+      gap: 0.35rem;
+      z-index: 2;
+    }
+
+    .hero-photo-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(248, 250, 252, 0.8);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    }
+
+    .hero-photo-dot.active {
+      background: var(--accent);
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .hero-photo-inline {
+        max-width: 100%;
+        padding: 0.6rem 0.6rem 2.4rem;
+      }
+
+      .hero-photo-slider {
+        height: 260px;
+      }
+
+      .hero-photo-caption {
+        max-width: 90%;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 3.5rem 0;
+      border-top: 1px solid rgba(15, 23, 42, 0.04);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-kicker {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      max-width: 32rem;
+      margin: 0.25rem auto 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* Products */
+    #products {
+      background: #ffffff; /* flat white, no gradient */
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 1.2rem;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      height: 100%;
+      border-top: 3px solid rgba(249, 115, 22, 0.4);
+    }
+
+    .card-img {
+      position: relative;
+      border-radius: 0.9rem;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #f3f4f6;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .card-tagline {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 600;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex: 1;
+    }
+
+    .card-list {
+      margin-top: 0.3rem;
+      padding-left: 1rem;
+      font-size: 0.88rem;
+    }
+
+    .card-list li {
+      margin-bottom: 0.15rem;
+    }
+
+    .card-footer {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* About */
+    #about {
+      background: #f9fafb; /* soft grey */
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+	<!--
+    .about-pill {
+	  display: inline-flex;
+	  align-items: center;
+	  gap: 0.4rem;
+	  padding: 0.35rem 0.9rem;
+	  font-size: 0.82rem;
+	  font-weight: 700;
+	  text-transform: uppercase;
+	  letter-spacing: 0.16em;
+	  border-radius: 999px;
+	  background: rgba(249, 115, 22, 0.12);
+	  color: var(--accent-dark);
+	  margin-bottom: 0.9rem;
+	  border-left: 3px solid var(--accent);
+	}
+	-->
+    .about-heading {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.7rem;
+    }
+
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .about-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem 1.5rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.87rem;
+    }
+
+    @media (max-width: 640px) {
+      .about-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .about-metric {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .about-metric strong {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      display: block;
+    }
+
+    .about-photo {
+      border-radius: 1.1rem;
+      background-image: url("images/warehouse-loading.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 320px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-overlay {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      padding: 0.7rem 1rem;
+      border-radius: 0.9rem;
+      background: rgba(255, 255, 255, 0.96);
+      font-size: 0.8rem;
+      color: var(--muted);
+      max-width: 12rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .about-overlay strong {
+      display: block;
+      color: var(--primary-dark);
+      margin-bottom: 0.15rem;
+    }
+
+    /* Services */
+    #services {
+      background: #f9fafb; /* same neutral as About, no orange gradient */
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 1.3rem;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      border-left: 4px solid rgba(15, 23, 42, 0.15);
+    }
+
+    .service-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .service-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .service-list {
+      margin-top: 0.2rem;
+      padding-left: 1rem;
+      font-size: 0.86rem;
+    }
+
+    .service-meta {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--primary-dark);
+      color: var(--white);
+    }
+
+    .contact .section-header {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact .section-title {
+      color: var(--white);
+    }
+
+    .contact .section-subtitle {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .contact-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 1rem;
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.7);
+      border-top: 3px solid rgba(249, 115, 22, 0.9);
+    }
+
+    .contact-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-item {
+      margin-bottom: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-item span {
+      display: block;
+      font-size: 0.78rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-top: 0.15rem;
+    }
+
+    .contact-item a {
+      color: #f97316;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-social {
+      margin-top: 1rem;
+      font-size: 0.86rem;
+      opacity: 0.9;
+    }
+
+    .contact-social a {
+      text-decoration: underline;
+      color: var(--accent);
+    }
+
+    .contact-social a:hover {
+      color: var(--accent-dark);
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--text);
+      border-radius: 1rem;
+      padding: 1.5rem 1.4rem;
+      border-top: 3px solid rgba(249, 115, 22, 0.9);
+    }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      .contact-form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .form-field {
+      margin-bottom: 0.9rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border 0.15s ease, box-shadow 0.15s ease;
+      background: #f9fafb;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.45);
+      background: #ffffff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-note {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1.4rem 0 1.6rem;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      background: #020617;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      color: #e5e7eb;
+      transition: color 0.15s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <a href="#home" class="nav-brand">
+          <img src="images/jwell-logo.png" alt="JWELL Trading &amp; Services logo" class="nav-logo-img" />
+          <span>JWELL Trading &amp; Services</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+          ☰
+        </button>
+
+        <div id="nav-links" class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#products">Products</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="https://www.facebook.com/profile.php?id=100088212167876" target="_blank" rel="noopener">Facebook</a>
+          <a href="#contact" class="nav-cta">Get a Quote</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Left: text -->
+        <div>
+          <div class="hero-kicker">Material Handling Solutions · Malaysia</div>
+          <h1 class="hero-title">
+            Your trusted partner for <span>forklift sales, rental &amp; service</span>.
+          </h1>
+          <p class="hero-subtitle">
+            JWELL Trading &amp; Services supports warehouses, factories and logistics operations with reliable
+            forklifts and reach trucks – new or used – backed by responsive maintenance support.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">View Products</a>
+            <a href="#contact" class="btn btn-outline">Request a Quote</a>
+          </div>
+
+          <div class="hero-meta">
+            <strong>Based in Skudai, Johor · Serving customers across Malaysia</strong><br />
+            Flexible rental terms, trade-in options and tailored service plans.
+          </div>
+        </div>
+
+        <!-- Right: hero media card -->
+        <div class="hero-media">
+          <div class="hero-photo-inline">
+            <div class="hero-photo-slider">
+              <figure class="hero-photo-slide active">
+                <img src="images/forklift2.5ton.jpg"
+                     alt="Fleet-ready forklifts for warehouses, factories &amp; yards." />
+              </figure>
+              <figure class="hero-photo-slide">
+                <img src="images/forklift7.0ton.jpg"
+                     alt="Customized wide carriage forklift for container maintenance." />
+              </figure>
+              <figure class="hero-photo-slide">
+                <img src="images/enginebay.jpg"
+                     alt="Reconditional forklift engine bay." />
+              </figure>
+              <figure class="hero-photo-slide">
+                <img src="images/karmar.jpg"
+                     alt="Karmar reach truck in container yard." />
+              </figure>
+			  <figure class="hero-photo-slide">
+                <img src="images/forklift2.5ton2.jpg"
+                     alt="Forklift ready for service." />
+              </figure>
+            </div>
+            <div class="hero-photo-caption"></div>
+            <div class="hero-photo-dots">
+              <button class="hero-photo-dot active" data-index="0" aria-label="Slide 1"></button>
+              <button class="hero-photo-dot" data-index="1" aria-label="Slide 2"></button>
+              <button class="hero-photo-dot" data-index="2" aria-label="Slide 3"></button>
+              <button class="hero-photo-dot" data-index="3" aria-label="Slide 4"></button>
+			  <button class="hero-photo-dot" data-index="3" aria-label="Slide 5"></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Products -->
+  <section id="products">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Products</div>
+        <h2 class="section-title">Forklifts &amp; Material Handling Equipment</h2>
+        <p class="section-subtitle">
+          Choose from diesel or battery forklifts and reach trucks to suit your lifting capacity, height and
+          operating environment.
+        </p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Product 1 -->
+        <article class="card">
+          <div class="card-img">
+            <img src="images/diesel-forklift.jpg" alt="Diesel &amp; Battery Forklift" />
+          </div>
+          <div class="card-tagline">Core Fleet</div>
+          <h3 class="card-title">Diesel &amp; Battery Forklifts</h3>
+          <p class="card-body">
+            Robust forklifts for indoor and outdoor use, available in a wide range of capacities and mast heights for
+            everyday material handling.
+          </p>
+          <ul class="card-list">
+            <li>Popular brands such as Toyota, Hyster and others</li>
+            <li>New and used units depending on your budget</li>
+            <li>Short-term or long-term rental options</li>
+          </ul>
+          <div class="card-footer">
+            <span>Ideal for warehouses, factories &amp; yards</span>
+          </div>
+        </article>
+
+        <!-- Product 2 -->
+        <article class="card">
+          <div class="card-img">
+            <img src="images/reach-truck.jpg" alt="Electric Reach Truck" />
+          </div>
+          <div class="card-tagline">High Racking</div>
+          <h3 class="card-title">Electric Reach Trucks</h3>
+          <p class="card-body">
+            Compact, maneuverable equipment designed for narrow-aisle warehousing where stability, safety and precision
+            are critical.
+          </p>
+          <ul class="card-list">
+            <li>Smooth electric operation for indoor use</li>
+            <li>Suitable for high rack storage</li>
+            <li>Improved operator comfort and visibility</li>
+          </ul>
+          <div class="card-footer">
+            <span>Perfect for narrow aisles &amp; cold rooms</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+		<div class="section-header">
+		  <div class="section-kicker">About</div>
+		  <h2 class="section-title">About JWELL Trading &amp; Services</h2>
+		  <p class="section-subtitle">
+			We provide practical, cost-effective forklift solutions for warehouses, factories and logistics operations across Malaysia.
+		  </p>
+		</div>
+      <div class="split">
+        <div>
+		  <!--
+          <div class="about-pill">
+            Since 2021 · JWELL Trading &amp; Services
+          </div>
+		  -->
+          <h2 class="about-heading">Supporting your material handling operations from day one.</h2>
+          <p class="about-text">
+            JWELL Trading &amp; Services was founded in 2021 to serve industrial customers involved in stacking,
+			picking, loading and unloading. We provide cost-effective forklift solutions – whether new or used –
+			cross Malaysia, backed by practical, hands-on experience in the field.
+          </p>
+          <p class="about-text">
+            From selecting the right equipment to setting up rental and service plans, our goal is to keep your
+            operation safe, efficient and within budget.
+          </p>
+
+          <div class="about-list">
+            <div>✔ Forklift sales (new and used)</div>
+            <div>✔ Flexible rental and leasing options</div>
+            <div>✔ Scheduled &amp; corrective maintenance</div>
+            <div>✔ Trade-in and upgrade programs</div>
+          </div>
+
+          <div class="about-metric">
+            <strong>Why customers choose us</strong>
+            Reliable machines, transparent recommendations and a team that understands the realities of day-to-day
+            warehouse and factory operations.
+          </div>
+        </div>
+
+        <aside class="about-photo">
+		<!--
+          <div class="about-overlay">
+            <strong>Operations-focused support</strong>
+            We align our forklift recommendations with your workload, shift pattern and safety requirements so you pay
+            for what you actually need.
+          </div>
+		  -->
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Services</div>
+        <h2 class="section-title">End-to-end support for your fleet</h2>
+        <p class="section-subtitle">
+          We provide rental, repair and trade-in services so you can maintain uptime while controlling overall cost of
+          ownership.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Rental -->
+        <article class="service-card">
+          <div class="service-label">Rental</div>
+          <h3 class="service-title">Forklift Rental</h3>
+          <p class="service-body">
+            Access the right equipment without large upfront investment. Choose from short-term or long-term rental
+            packages tailored to your workload.
+          </p>
+          <ul class="service-list">
+            <li>Wide selection of capacities and configurations</li>
+            <li>Suitable for project-based or seasonal peaks</li>
+            <li>Well-maintained units for dependable performance</li>
+          </ul>
+          <div class="service-meta">
+            Ideal if you want predictable monthly costs and flexibility to scale your fleet up or down.
+          </div>
+        </article>
+
+        <!-- Repair / Maintenance -->
+        <article class="service-card">
+          <div class="service-label">Maintenance</div>
+          <h3 class="service-title">Repair &amp; Preventive Maintenance</h3>
+          <p class="service-body">
+            Keep your fleet safe and productive with scheduled maintenance and responsive breakdown support performed by
+            experienced technicians.
+          </p>
+          <ul class="service-list">
+            <li>Planned maintenance programs for all major brands</li>
+			<!--
+            <li>Full maintenance options with fixed monthly fees</li>
+			-->
+            <li>Checks covering safety systems, hydraulics and drive train</li>
+          </ul>
+          <div class="service-meta">
+            We work with you to build a maintenance plan aligned with your operating hours and production schedule.
+          </div>
+        </article>
+
+        <!-- Trade -->
+        <article class="service-card">
+          <div class="service-label">Trade &amp; Upgrade</div>
+          <h3 class="service-title">Trade-in &amp; Sales</h3>
+          <p class="service-body">
+            Upgrade your equipment while managing cost. We offer used and new forklifts that are inspected and prepared
+            for reliable daily use.
+          </p>
+          <ul class="service-list">
+            <li>Trade-in options for existing equipment</li>
+            <li>Units inspected for performance and safety</li>
+            <li>Solutions for both budget-conscious and premium needs</li>
+          </ul>
+          <div class="service-meta">
+            Share your current fleet details and we will propose suitable replacement or upgrade options.
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <div class="section-header">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Get a quote or speak with us</h2>
+            <p class="section-subtitle">
+              Share your application, lifting capacity and working environment. We will recommend suitable equipment and
+              send you a quotation.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-label">Company Details</div>
+
+            <div class="contact-item">
+              <span>Address</span>
+              <strong>1526, Jalan Pulai Jaya 50, Bandar Pulai Jaya,<br />
+                81300 Skudai, Johor, Malaysia</strong>
+            </div>
+
+            <div class="contact-item">
+              <span>Email</span>
+              <strong><a href="mailto:admin@jwell.com.my">admin@jwell.com.my</a></strong>
+            </div>
+
+            <div class="contact-item">
+              <span>Phone / WhatsApp</span>
+              <strong>+60 10-441 1919 &nbsp;|&nbsp; +65 9103 7263 &nbsp;|&nbsp; +60 17-728 8189</strong>
+            </div>
+
+            <div class="contact-social">
+              Follow us on
+              <a href="https://www.facebook.com/profile.php?id=100088212167876" target="_blank" rel="noopener">Facebook</a>
+              or reach us directly via WhatsApp for faster response.
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form action="#" method="post">
+            <div class="contact-form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your full name" required />
+              </div>
+
+              <div class="form-field">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" placeholder="Company / Site name" />
+              </div>
+            </div>
+
+            <div class="contact-form-row">
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="name@example.com" required />
+              </div>
+
+              <div class="form-field">
+                <label for="phone">Phone / WhatsApp</label>
+                <input id="phone" name="phone" type="tel" placeholder="+60..." />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="service">Service Required</label>
+              <select id="service" name="service">
+                <option value="">Select an option</option>
+                <option value="rental">Forklift Rental</option>
+                <option value="purchase">Purchase (New or Used)</option>
+                <option value="service">Service &amp; Repair</option>
+                <option value="tradein">Trade-in &amp; Upgrade</option>
+                <option value="other">Others</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Application &amp; Requirements</label>
+              <textarea id="message" name="message" placeholder="E.g. 2.5T diesel forklift, indoor/outdoor use, rental period, lifting height, special requirements"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.4rem;">
+              Submit Request
+            </button>
+
+            <p class="form-note">
+              By submitting this form, you agree to be contacted by JWELL Trading &amp; Services regarding your enquiry.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          © 2021–<span id="year"></span> JWELL Trading &amp; Services. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="#home">Back to top</a>
+          <a href="#products">Products</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="https://www.facebook.com/profile.php?id=100088212167876" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    function toggleNav() {
+      const navLinks = document.getElementById("nav-links");
+      navLinks.classList.toggle("mobile-open");
+    }
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href").substring(1);
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: "smooth"
+        });
+        const navLinks = document.getElementById("nav-links");
+        if (navLinks.classList.contains("mobile-open")) {
+          navLinks.classList.remove("mobile-open");
+        }
+      });
+    });
+
+    // Hero image carousel with dynamic captions from alt text
+    (function () {
+      const slides = document.querySelectorAll(".hero-photo-slide");
+      const dots = document.querySelectorAll(".hero-photo-dot");
+      const caption = document.querySelector(".hero-photo-caption");
+      if (!slides.length) return;
+
+      let current = 0;
+      const intervalMs = 5000;
+      let timer;
+
+      function updateCaption() {
+        const altText = slides[current].querySelector("img").alt;
+        caption.style.opacity = 0;
+        setTimeout(() => {
+          caption.textContent = altText;
+          caption.style.opacity = 1;
+        }, 150);
+      }
+
+      function goToSlide(index) {
+        slides[current].classList.remove("active");
+        dots[current].classList.remove("active");
+
+        current = index;
+
+        slides[current].classList.add("active");
+        dots[current].classList.add("active");
+        updateCaption();
+      }
+
+      function nextSlide() {
+        const next = (current + 1) % slides.length;
+        goToSlide(next);
+      }
+
+      function startAuto() {
+        timer = setInterval(nextSlide, intervalMs);
+      }
+
+      function resetAuto() {
+        clearInterval(timer);
+        startAuto();
+      }
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          const index = Number(dot.getAttribute("data-index"));
+          goToSlide(index);
+          resetAuto();
+        });
+      });
+
+      // Initialize
+      updateCaption();
+      startAuto();
+    })();
+  </script>
+</body>
+</html>
