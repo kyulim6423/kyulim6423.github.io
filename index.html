@@ -1192,7 +1192,9 @@
         </div>
 
         <div class="contact-form">
-          <form action="#" method="post">
+          <!-- form action="#" method="post" -->
+		  <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+			<input type="hidden" name="access_key" value="2d4fe43b-6670-41c6-8773-9f8cfd9cbf58">
             <div class="contact-form-row">
               <div class="form-field">
                 <label for="name">Name</label>
@@ -1221,11 +1223,11 @@
               <label for="service">Service Required</label>
               <select id="service" name="service">
                 <option value="">Select an option</option>
-                <option value="rental">Forklift Rental</option>
-                <option value="purchase">Purchase (New or Used)</option>
-                <option value="service">Service &amp; Repair</option>
-                <option value="tradein">Trade-in &amp; Upgrade</option>
-                <option value="other">Others</option>
+                <option value="ForkliftRental">Forklift Rental</option>
+                <option value="Purchase">Purchase (New or Used)</option>
+                <option value="ServiceRepair">Service &amp; Repair</option>
+                <option value="TradeIn">Trade-in &amp; Upgrade</option>
+                <option value="Other">Others</option>
               </select>
             </div>
 
